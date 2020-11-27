@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <p> Name : {{ student.student_name }}</p>
+            <p> USN : {{ student.USN }}</p>
+            <p> Branch : {{ student.Branch }}</p>
+            <p> Contact No : {{ student.student_mbl_no}}</p>
+            <p> Father's Name : {{ student.father_name}}</p>
+            <p>  Father's Contact No: {{ student.father_mbl_no}}</p>
+            <p> DOB : {{ student.dob}}</p>
+
+
+        </div>
+
+      </div>
+
+
+
+
+{% endblock %}
