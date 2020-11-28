@@ -16,6 +16,7 @@ class Student(models.Model):
     gender_choices = [('M', 'Male'), ('F', 'Female')]
     student_name = models.CharField(max_length=200, null=True)
     student_mbl_no = models.PositiveIntegerField(default=None,null=True)
+    adress = models.CharField(max_length=256,default=None,null=True)
     father_name = models.CharField(max_length=200, null=True)
     father_mbl_no = models.PositiveIntegerField(default=None,null=True)
     USN = models.CharField(max_length=10, unique=True, null=True)

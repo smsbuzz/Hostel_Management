@@ -63,8 +63,8 @@ def student_after_registration(request):
 def student_login(request):
     context = ''
     if request.method=='POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST.get('Username')
+        password = request.POST.get('Password')
         student = authenticate(request,username = username,password = password)
         if student is not None:
             if student.is_warden:

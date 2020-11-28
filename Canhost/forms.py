@@ -38,6 +38,7 @@ class RegistrationForm(forms.ModelForm):
             'student_name',
             'USN',
             'student_mbl_no',
+            'adress',
             'father_name',
             'father_mbl_no',
             'Branch',
