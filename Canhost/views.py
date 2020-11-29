@@ -68,20 +68,16 @@ def user_login(request):
         user = authenticate(request,username = username,password = password)
         if user is not None:
             if user.is_warden:
-                print('Warden')
                 if user.is_active:
-                    print('Login')
                     login(request,user)
                     return redirect('Canhost:warden_home')
 
             else:
                 if user.is_active:
-                    print("Stident login")
                     login(request,user)
                     return redirect("Canhost:student_profile")
 
         else:
-            print('Student disabled')
             context = 'Disabled acc contact Your warden or Admin'
 
 
