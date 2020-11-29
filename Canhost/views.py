@@ -85,9 +85,18 @@ def user_login(request):
 
 
 
-
+@login_required
 def warden_homepage(request):
-    return render(request,'warden_home.html')
+    user = request.user
+    if user is not None:
+        if  user.is_warden:
+            login(request,user)
+            room_list = user.warden.hostel.room_set.all().order_by('no')
+            print(room_list)
+        else:
+            return HttpResponse("Invalid Login")
+
+    return render(request,'warden_home.html',{'room':room_list})
 
 
 def user_logout(request):

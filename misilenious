@@ -8,3 +8,62 @@
                 context = 'Disabled account'
         else:
             context = 'Inactive Account'
+
+
+
+
+<div class="container">
+        <tabel>
+            <thed>
+                <th>Hostel</th>
+                <th>Room no</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Student Name</th>
+                <th>USN</th>
+                <th>Gender</th>
+                <th>Maintainence</th>
+            </thed>
+            {% for rm in room %}
+                <td>{{ rm.hostel }}</td>
+                <td>{{ rm.no }}</td>
+                <td>{{ rm.room_type }}</td>
+                <td>
+                    {% if rm.vacant %}
+                    vacant
+                    {% else %}
+                    occupied
+                    {% endif %}
+                </td>
+                <td>
+                {% if rm.vacant %}
+                    -----
+                    {% else %}
+                    {{ rm.student.student_name }}
+                    {% endif %}
+                </td>
+                <td>
+                {% if rm.vacant %}
+                    -----
+                    {% else %}
+                    {{ rm.student.USN }}
+                    {% endif %}
+                </td>
+                <td>
+                {% if rm.vacant %}
+                    -----
+                    {% else %}
+                    {{ rm.student.gender }}
+                    {% endif %}
+                </td>
+                <td>
+                {% if rm.vacant %}
+                    -----
+                    {% else %}
+                    {{ rm.repair}}
+                    {% endif %}
+                </td>
+
+            {% endfor %}
+        </tabel>
+    </div>
