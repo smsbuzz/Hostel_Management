@@ -12,6 +12,9 @@
         <div class="login-box">
             <img src="{% static 'assets/img/avatar-default-icon.png' %}" class="avatar">
                 <h1>LOGIN</h1>
+                    {% if message %}
+                    <h4> {{ message }}</h4>
+                    {% endif %}
                 <form method="post">
                     {% csrf_token %}
                     <p>Username</p>

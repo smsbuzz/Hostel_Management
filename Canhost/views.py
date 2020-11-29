@@ -60,29 +60,38 @@ def student_after_registration(request):
         form = RegistrationForm()
     return render(request,'after_reg.html',{'form':form})
 
-def student_login(request):
+def user_login(request):
     context = ''
     if request.method=='POST':
         username = request.POST.get('Username')
         password = request.POST.get('Password')
-        student = authenticate(request,username = username,password = password)
-        if student is not None:
-            if student.is_warden:
-                context = 'Wardens are not allowed to login'
-            if student.is_active:
-                login(request,student)
-                return redirect("Canhost:student_profile")
+        user = authenticate(request,username = username,password = password)
+        if user is not None:
+            if user.is_warden:
+                print('Warden')
+                if user.is_active:
+                    print('Login')
+                    login(request,user)
+                    return redirect('Canhost:warden_home')
+
             else:
-                context = 'Disabled account'
+                if user.is_active:
+                    print("Stident login")
+                    login(request,user)
+                    return redirect("Canhost:student_profile")
+
         else:
-            context = 'Inactive Account'
+            print('Student disabled')
+            context = 'Disabled acc contact Your warden or Admin'
+
+
     return render(request,'Login.html',{'message':context})
 
 
 
 
-def warden_login(request):
-    pass
+def warden_homepage(request):
+    return render(request,'warden_home.html')
 
 
 def user_logout(request):

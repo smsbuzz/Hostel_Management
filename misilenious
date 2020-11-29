@@ -1,0 +1,10 @@
+        if student is not None:
+            if student.is_warden:
+                context = 'Wardens are not allowed to login'
+            if student.is_active:
+                login(request,student)
+                return redirect("Canhost:student_profile")
+            else:
+                context = 'Disabled account'
+        else:
+            context = 'Inactive Account'
