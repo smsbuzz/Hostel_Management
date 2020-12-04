@@ -191,3 +191,6 @@ def leave(request):
 def maintainence(request):
     pass
 
+def Warden_add_room(request):
+    pass
+
