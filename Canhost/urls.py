@@ -14,5 +14,6 @@ urlpatterns = [
     path('leave/',leave,name='leave'),
     path('Room_maintenence/',maintainence,name='Room_maintenence'),
     path('warden_home/',warden_homepage,name='warden_home'),
+    path('room_select/',select,name='room_select'),
 
 ]
